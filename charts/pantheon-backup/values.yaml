@@ -1,6 +1,7 @@
 # Container configuration.
 image:
   repository: ten7/pantheon-backup
+  tag: latest
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
