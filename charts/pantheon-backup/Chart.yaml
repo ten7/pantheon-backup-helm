@@ -1,0 +1,7 @@
+apiVersion: v2
+name: pantheon-backup
+description: A Helm chart to backup Pantheon sites to S3 or SFTP from Kubernetes
+type: application
+version: 1.0.0
+appVersion: 1.0.0
+

@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  pantheon-backup.yml: |
+    pantheon_backup:
+      debug: {{ .Values.pantheon_backup.config.debug | quote }}
+      {{- with .Values.pantheon_backup.config.sources }}
+      sources:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.pantheon_backup.config.remotes }}
+      remotes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.pantheon_backup.config.backups }}
+      backups:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+
+kind: ConfigMap
+metadata:
+  namespace: {{ .Release.Namespace | quote }}
+  name: {{ template "pantheon-backup.fullname" . }}-config
+
