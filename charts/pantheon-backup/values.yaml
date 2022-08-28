@@ -21,7 +21,13 @@ pantheon_backup:
     # This can be useful to troubleshoot failing backups.
     # 
     debug: false
- 
+
+    # Stop the entire cronjob if any one backup fails.
+    #
+    # This can be useful to troubleshoot failing backups.
+    #
+    stopOnFailure: false
+
     # Dictionary of Pantheon sites from which to create backups.
     #
     # The key name (example.com) below, need not be site URL, it can be any 
