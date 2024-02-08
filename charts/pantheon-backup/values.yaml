@@ -182,6 +182,17 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+persistence:
+  enabled: false
+  labels: {}
+  annotations: {}
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 10Gi
+
 nodeSelector: {}
 
 tolerations: []

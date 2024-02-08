@@ -1,0 +1,20 @@
+{{- if .Values.persistence.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ template "pantheon-backup.fullname" . }}-tmp
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  {{- if .Values.persistence.storageClassName }}
+  storageClassName: {{- .Values.persistence.storageClassName }}
+  {{- end }}
+  {{- with .Values.persistence.accessModes }}
+  accessModes:
+    {{- toYaml . | nindent 6 }}
+  {{- end }}
+  {{- with .Values.persistence.resources }}
+  resources:
+    {{- toYaml . | nindent 6 }}
+  {{- end }}
+{{- end -}}
+

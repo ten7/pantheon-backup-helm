@@ -28,6 +28,19 @@ helm repo update
 helm upgrade --install pantheon-backup pantheon-backup/pantheon-backup --namespace=my-namespace -f path/to/my-values.yml
 ```
 
+## Persistence
+Some versions of managed Kubernetes, such as GKE, have a hard limit on the amount of ephemeral storage you can request. In this cases, you may wish to enable persistence on the chart:
+
+```yaml
+persistence:
+  enabled: true
+  resources:
+    requests:
+      storage: 10Gi
+```
+
+This will mount the disk in the container at /tmp, alllowing larger backups to be processed.
+
 ## Configuration
 
 For a full list of values, see [values.yaml](https://raw.githubusercontent.com/ten7/pantheon-backup-helm/main/charts/pantheon-backup/values.yaml).
