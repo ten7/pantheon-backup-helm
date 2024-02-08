@@ -29,6 +29,18 @@ spec:
           serviceAccountName: {{ include "pantheon-backup.serviceAccountName" . }}
           securityContext:
             {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          {{- if .Values.persistence.enabled }}
+          initContainers:
+            - name: fix-pvc-permissions
+              image: alpine
+              command:
+                - "sh"
+                - "-c"
+                - "chown -R 1000:1000 /backups"
+              volumeMounts:
+                - name: cache
+                  mountPath: /backups
+          {{- end }}
           containers:
           - name: {{ .Chart.Name }}
             securityContext:
