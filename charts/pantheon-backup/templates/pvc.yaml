@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ template "pantheon-backup.fullname" . }}-tmp
+  name: {{ template "pantheon-backup.fullname" . }}-cache
   namespace: {{ .Release.Namespace | quote }}
 spec:
   {{- if .Values.persistence.storageClassName }}

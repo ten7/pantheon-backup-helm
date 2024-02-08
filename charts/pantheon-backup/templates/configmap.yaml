@@ -3,6 +3,9 @@ data:
   pantheon-backup.yml: |
     pantheon_backup:
       debug: {{ .Values.pantheon_backup.config.debug | quote }}
+      {{- if .Values.persistence.enabled }}
+      cachePath: "/backups"
+      {{- end }}
       stopOnFailure: {{ .Values.pantheon_backup.config.stopOnFailure | quote }}
       {{- with .Values.pantheon_backup.config.sources }}
       sources:

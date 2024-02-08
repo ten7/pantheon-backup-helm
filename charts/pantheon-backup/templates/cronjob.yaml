@@ -45,8 +45,8 @@ spec:
               - name: config
                 mountPath: /config/pantheon-backup
               {{- if .Values.persistence.enabled }}
-              - name: tmp
-                mountPath: /tmp
+              - name: cache
+                mountPath: /backups
               {{- end }}
               {{- if .Values.extraVolumeMounts }}
               {{- toYaml .Values.extraVolumeMounts | nindent 14 }}
@@ -70,9 +70,9 @@ spec:
                 name: {{ template "pantheon-backup.fullname" . }}-config
                 defaultMode: 420
             {{- if .Values.persistence.enabled }}
-            - name: tmp
+            - name: cache
               persistentVolumeClaim:
-                claimName: {{ template "pantheon-backup.fullname" . }}-tmp
+                claimName: {{ template "pantheon-backup.fullname" . }}-cache
             {{- end }}
             {{- if .Values.extraVolumes }}
             {{- toYaml .Values.extraVolumes | nindent 12 }}
