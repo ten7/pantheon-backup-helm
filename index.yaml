@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   pantheon-backup:
   - apiVersion: v2
+    appVersion: 1.3.0
+    created: "2025-08-14T14:22:56.515381696Z"
+    description: A Helm chart to backup Pantheon sites to S3 or SFTP from Kubernetes
+    digest: ce74a7dd8c9a30c5121d17e594b7927dcf5dffc645c5fa87a8977eddf09dcedd
+    name: pantheon-backup
+    type: application
+    urls:
+    - https://ten7.github.io/pantheon-backup-helm/pantheon-backup-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
     appVersion: 1.2.3
     created: "2024-02-08T20:28:12.481357458Z"
     description: A Helm chart to backup Pantheon sites to S3 or SFTP from Kubernetes
@@ -81,4 +91,4 @@ entries:
     urls:
     - https://ten7.github.io/pantheon-backup-helm/pantheon-backup-1.0.0.tgz
     version: 1.0.0
-generated: "2024-02-08T20:28:12.480776187Z"
+generated: "2025-08-14T14:22:56.51451939Z"
