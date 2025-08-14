@@ -14,6 +14,10 @@ fullnameOverride: ""
 # Here is where you'll do most of your configuration for the backup process.
 #
 pantheon_backup:
+  command:
+    - "bin/bash"
+    - "-c"
+    - "pantheon-backup"
   config:
   
     # Turn on debugging output. 

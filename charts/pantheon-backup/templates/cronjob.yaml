@@ -47,10 +47,10 @@ spec:
               {{- toYaml .Values.securityContext | nindent 14 }}
             image: "{{ include "pantheon-backup.image" . }}"
             imagePullPolicy: {{ .Values.image.pullPolicy }}
+            {{- with .Values.pantheon_backup.command }}
             command:
-              - "bin/bash"
-              - "-c"
-              - "pantheon-backup"
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
             resources:
               {{- toYaml .Values.resources | nindent 14 }}
             volumeMounts:
